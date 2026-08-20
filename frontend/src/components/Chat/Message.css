@@ -1,0 +1,20 @@
+.message {
+  max-width: 75%;
+  padding: 12px 16px;
+  margin: 10px;
+  border-radius: 16px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.message.user {
+  margin-left: auto;
+  background: #2563eb;
+  color: white;
+}
+
+.message.ai {
+  margin-right: auto;
+  background: #1f2937;
+  color: white;
+}
