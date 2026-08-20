@@ -1,15 +1,29 @@
 import "./Chat.css";
+import "./Message.css";
+
+import { useState } from "react";
+import Message from "./Message";
+
 export default function Chat() {
+  const [messages] = useState([
+    {
+      sender: "ai",
+      text: "Привет! Я Aiden. Чем могу помочь?"
+    }
+  ]);
+
   return (
     <section className="chat-window">
 
       <div className="welcome">
 
-        <h2>Добро пожаловать в Aiden</h2>
-
-        <p>
-          Начните диалог с искусственным интеллектом.
-        </p>
+        {messages.map((message, index) => (
+          <Message
+            key={index}
+            sender={message.sender}
+            text={message.text}
+          />
+        ))}
 
       </div>
 
