@@ -2,9 +2,14 @@ import "./Chat.css";
 import "./Message.css";
 
 import { useState } from "react";
+
 import Message from "./Message";
+import { useModel } from "../../context/ModelContext";
+import { sendMessage } from "../../services/chatService";
 
 export default function Chat() {
+
+  const { model } = useModel();
 
   const [messages, setMessages] = useState([
     {
@@ -15,21 +20,31 @@ export default function Chat() {
 
   const [input, setInput] = useState("");
 
-  const sendMessage = () => {
+  async function handleSend() {
 
-    if (input.trim() === "") return;
+    if (!input.trim()) return;
 
-    setMessages([
-      ...messages,
-      {
-        sender: "user",
-        text: input
-      }
-    ]);
+    const userMessage = {
+      sender: "user",
+      text: input
+    };
+
+    setMessages(prev => [...prev, userMessage]);
+
+    const text = input;
 
     setInput("");
 
-  };
+    const response = await sendMessage(model, text);
+
+    setMessages(prev => [
+      ...prev,
+      {
+        sender: "ai",
+        text: response.reply
+      }
+    ]);
+  }
 
   return (
     <section className="chat-window">
@@ -49,13 +64,12 @@ export default function Chat() {
       <div className="chat-input">
 
         <input
-          type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Введите сообщение..."
         />
 
-        <button onClick={sendMessage}>
+        <button onClick={handleSend}>
           Отправить
         </button>
 
