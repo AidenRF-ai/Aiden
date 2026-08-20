@@ -1,10 +1,9 @@
 export async function sendMessage(model, message) {
 
-  console.log("Model:", model);
-  console.log("Message:", message);
+  await new Promise(resolve => setTimeout(resolve, 700));
 
   return {
-    reply: "Пока это тестовая версия Aiden. Подключение ИИ будет следующим этапом."
+    reply: `Вы выбрали модель "${model}". В будущем здесь будет настоящий ответ ИИ на сообщение: "${message}".`
   };
 
 }
