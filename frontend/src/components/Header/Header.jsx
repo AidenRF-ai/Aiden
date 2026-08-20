@@ -1,3 +1,4 @@
+import "./Header.css";
 import ModelSelector from "../ModelSelector/ModelSelector";
 
 export default function Header() {
