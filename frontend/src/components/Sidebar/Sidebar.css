@@ -1,0 +1,66 @@
+.sidebar {
+  width: 260px;
+  background: #111827;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-right: 1px solid #2b3442;
+}
+
+.logo {
+  margin-bottom: 25px;
+}
+
+.logo h2 {
+  font-size: 28px;
+  color: #4f8cff;
+}
+
+.new-chat {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+.new-chat:hover {
+  background: #1d4ed8;
+}
+
+.history {
+  flex: 1;
+}
+
+.history h3 {
+  margin-bottom: 15px;
+}
+
+.history ul {
+  list-style: none;
+  padding: 0;
+}
+
+.history li {
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.history li:hover {
+  background: #1f2937;
+}
+
+.profile button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #374151;
+  color: white;
+  cursor: pointer;
+}
