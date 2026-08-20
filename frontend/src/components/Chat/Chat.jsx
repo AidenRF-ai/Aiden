@@ -5,12 +5,31 @@ import { useState } from "react";
 import Message from "./Message";
 
 export default function Chat() {
-  const [messages] = useState([
+
+  const [messages, setMessages] = useState([
     {
       sender: "ai",
       text: "Привет! Я Aiden. Чем могу помочь?"
     }
   ]);
+
+  const [input, setInput] = useState("");
+
+  const sendMessage = () => {
+
+    if (input.trim() === "") return;
+
+    setMessages([
+      ...messages,
+      {
+        sender: "user",
+        text: input
+      }
+    ]);
+
+    setInput("");
+
+  };
 
   return (
     <section className="chat-window">
@@ -31,10 +50,12 @@ export default function Chat() {
 
         <input
           type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
           placeholder="Введите сообщение..."
         />
 
-        <button>
+        <button onClick={sendMessage}>
           Отправить
         </button>
 
