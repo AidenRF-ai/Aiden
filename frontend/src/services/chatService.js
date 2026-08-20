@@ -1,9 +1,21 @@
-export async function sendMessage(model, message) {
+import { AI_MODELS } from "../config/models";
+
+export async function sendMessage(modelId, message) {
+
+  const model = AI_MODELS[modelId];
+
+  if (!model) {
+    return {
+      reply: "Неизвестная модель."
+    };
+  }
+
+  // Пока заглушка
 
   await new Promise(resolve => setTimeout(resolve, 700));
 
   return {
-    reply: `Вы выбрали модель "${model}". В будущем здесь будет настоящий ответ ИИ на сообщение: "${message}".`
+    reply: `[${model.name}] получила сообщение: "${message}". Подключение настоящего API будет следующим шагом.`
   };
 
 }
