@@ -1,3 +1,4 @@
+import "./ModelSelector.css";
 export default function ModelSelector() {
   return (
     <select className="model-selector">
