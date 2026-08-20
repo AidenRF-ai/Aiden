@@ -1,42 +1,24 @@
+import "./styles/global.css";
+import "./styles/app.css";
+
+import Sidebar from "./components/Sidebar/Sidebar";
+import Header from "./components/Header/Header";
+import Chat from "./components/Chat/Chat";
+
 export default function App() {
   return (
     <div className="app">
-      <aside className="sidebar">
-        <h2>Aiden</h2>
 
-        <button className="new-chat">
-          + Новый чат
-        </button>
+      <Sidebar />
 
-        <div className="models">
-          <h4>Модель</h4>
+      <main className="main">
 
-          <select>
-            <option>ChatGPT</option>
-            <option>Claude</option>
-            <option>Gemini</option>
-          </select>
-        </div>
-      </aside>
+        <Header />
 
-      <main className="chat">
-        <header>
-          <h1>Aiden AI</h1>
-        </header>
+        <Chat />
 
-        <section className="messages">
-          <h2>Добро пожаловать!</h2>
-          <p>Ваш персональный AI-помощник готов к работе.</p>
-        </section>
-
-        <footer>
-          <input
-            type="text"
-            placeholder="Введите сообщение..."
-          />
-          <button>Отправить</button>
-        </footer>
       </main>
+
     </div>
   );
 }
